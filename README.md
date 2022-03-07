@@ -1,4 +1,4 @@
-#Video Streaming App
+# Video Streaming App
 
 To run it in a localhost:
    1. Type "npm instal" inside server directory
