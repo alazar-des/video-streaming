@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Container, Form, Button, Card, Alert } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import PropTypes from 'prop-types';
 
 export default function Login ({ setToken }) {
   const [error, setError] = useState('')
@@ -28,9 +29,11 @@ export default function Login ({ setToken }) {
         navigate('/')
       } else {
         setError('Username or password is wrong. Try Again')
+        setLoading(false)
       }
     }).catch(() => {
       setError('Username or password is wrong. Try Again')
+        setLoading(false)
     })
   }
 
@@ -63,4 +66,8 @@ export default function Login ({ setToken }) {
       </div>
     </Container>
   )
+}
+
+Login.propTypes = {
+  setToken: PropTypes.func
 }
