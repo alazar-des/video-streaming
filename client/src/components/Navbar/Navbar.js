@@ -8,7 +8,7 @@ import {
   Button
 } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { RiVideoUploadFill } from 'react-icons/ri'
+import { RiVideoUploadFill, RiLiveFill } from 'react-icons/ri'
 import useToken from '../App/useToken'
 import PropTypes from 'prop-types';
 
@@ -33,6 +33,12 @@ export default function Nav() {
             <Button variant='outline-primary'>Search</Button>
           </Form>
           <Link to='/upload'> <RiVideoUploadFill /> </Link>
+
+          <NavDropdown title={<RiLiveFill />} id='basic-nav-dropdown'>
+             <NavDropdown.Item href='/broadcast'>Go Live</NavDropdown.Item>
+             <NavDropdown.Item href='/watch'>Watch Live</NavDropdown.Item>
+          </NavDropdown>
+      
           {token
             ? (
               <NavDropdown title={token.user.email} id='basic-nav-dropdown'>

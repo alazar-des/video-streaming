@@ -15,6 +15,7 @@ require('./auth/auth');
 const video = require('./routes/video');
 const upload = require('./routes/upload');
 const authRoutes = require('./routes/auth');
+const liveStreaming = require('./routes/live-stream');
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use('/uploads/thumbnail', express.static('../uploads/thumbnail'));
 app.use('/', video);
 app.use('/', authRoutes);
 app.use('/user', passport.authenticate('jwt', { session: false }), upload);
+app.use('/', liveStreaming);
 
 app.use(function(err, req, res) {
   res.status(err.status || 500);
